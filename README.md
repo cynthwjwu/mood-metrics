@@ -1,2 +1,2 @@
-# mood_metrics
+# mood-metrics
 BlueHack 
