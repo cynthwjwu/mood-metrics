@@ -112,43 +112,43 @@ resp = json.loads(json_str)
 
 print(resp)
 
-# Parse visual recognition later
+# Parse visual recognition
 
-# string2 = "" #string to hold visual analyzer output
-# visual_scores = {} #to hold visual classes and their respective scores
-# class_remaining = False
-#
-# visual_scores['Happy'] = 0
-# visual_scores['Nothappy'] = 0
-# visual_scores['Negative'] = 0
-#
-# #read output2.txt into a string so we can parse
-# with open('output3.txt', 'r') as f:
-#     for line in f:
-#         string2 = string2 + line
-#
+string2 = "" #string to hold visual analyzer output
+visual_scores = {} #to hold visual classes and their respective scores
+class_remaining = False
+
+visual_scores['Happy'] = 0
+visual_scores['Nothappy'] = 0
+visual_scores['Negative'] = 0
+
+#read output2.txt into a string so we can parse
+with open('output3.txt', 'r') as f:
+    for line in f:
+        string2 = string2 + line
+
 # print string2 #for debug
-#
-# #check for any emotions detected
-# if 'images' in string2:
-#     class_remaining = True
-#
-# #create dict of tone scores
-# while class_remaining:
-#     index_score = string.find('score')
-#     score = string[index_score+8:index_score+15]
-#     score = float(score)
-#     print score
-#
-#     if visual_scores['Happy'] == 0:
-#         visual_scores['Happy'] = score
-#     elif visual_scores['Nothappy'] == 0:
-#         visual_scores['Nothappy'] = score
-#     else:
-#         visual_scores['Negative'] = score
-#
-#     string2 = string2[index_score+15:]
-#     if string2.find('score') == -1:
-#         class_remaining = False
-#
-# print visual_scores
+
+#check for any emotions detected
+if 'images' in string2:
+    class_remaining = True
+
+#create dict of tone scores
+while class_remaining:
+    index_score = string.find('score')
+    score = string[index_score+8:index_score+15]
+    score = float(score)
+    print score
+
+    if visual_scores['Happy'] == 0:
+        visual_scores['Happy'] = score
+    elif visual_scores['Nothappy'] == 0:
+        visual_scores['Nothappy'] = score
+    else:
+        visual_scores['Negative'] = score
+
+    string2 = string2[index_score+15:]
+    if string2.find('score') == -1:
+        class_remaining = False
+
+print visual_scores
